@@ -1,8 +1,6 @@
 package com.hibernate.exercise;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -17,7 +15,16 @@ public class Author {
     String FirstName;
     String LastName;
     int age;
+    @Temporal(TemporalType.DATE)
+    Date date;
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
