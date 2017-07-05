@@ -9,13 +9,16 @@ import java.util.Date;
 @Entity
 public class Author {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
+    @Column(name = "Author_ID")
     int id;
+    @Column(name="F_Name")
     String FirstName;
+    @Column(name="L_Name")
     String LastName;
+    @Column(name="Author_Age")
     int age;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)@Column(name="Dob")
     Date date;
 
     public Date getDate() {
