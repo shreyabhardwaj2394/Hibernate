@@ -14,6 +14,7 @@ public class Author {
     int id;
     @Column(name="F_Name")
     String FirstName;
+    @Transient
     @Column(name="L_Name")
     String LastName;
     @Column(name="Author_Age")
