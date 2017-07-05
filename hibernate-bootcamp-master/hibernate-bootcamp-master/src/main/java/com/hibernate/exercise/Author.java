@@ -19,7 +19,7 @@ public class Author {
     String LastName;
     @Column(name="Author_Age")
     int age;
-    @Temporal(TemporalType.DATE)@Column(name="Dob")
+    @Temporal(TemporalType.DATE)@Column(name="Dob") //use @Temporal
     Date date;
 
     public Date getDate() {
