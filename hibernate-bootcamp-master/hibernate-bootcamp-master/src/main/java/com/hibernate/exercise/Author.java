@@ -1,6 +1,7 @@
 package com.hibernate.exercise;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -11,11 +12,11 @@ import java.util.Date;
 public class Author {
 
     @Id
+    @GeneratedValue
     int id;
     String FirstName;
     String LastName;
     int age;
-    //Date date;
 
 
     @Override
