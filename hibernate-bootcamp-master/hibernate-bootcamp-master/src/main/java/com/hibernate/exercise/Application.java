@@ -17,7 +17,7 @@ public class Application {
         SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
         Session session=sessionFactory.openSession();
         try{
-        /*    Transaction transaction = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
 
             Author author1=new Author();
             author1.setFirstName("shreya");
@@ -30,7 +30,7 @@ public class Application {
             session.save(book);
             session.save(author1);
 
-            transaction.commit();*/
+            transaction.commit();
 
         }catch (RuntimeException e){
             System.out.println("------");
