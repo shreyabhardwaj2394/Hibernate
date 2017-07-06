@@ -19,35 +19,18 @@ public class Application {
         try{
             Transaction transaction = session.beginTransaction();
 
-            Subjects subject1=new Subjects();
-            subject1.setSubjectName("Science");
-
-            Subjects subject2=new Subjects();
-            subject2.setSubjectName("English");
-
-            Subjects subject3=new Subjects();
-            subject3.setSubjectName("Maths");
-
-            Subjects subject4=new Subjects();
-            subject4.setSubjectName("CS");
-
-
             Author author1=new Author();
             author1.setFirstName("shreya");
             author1.setLastName("bhardwaj");
             author1.setAge(22);
-           //Adding multiple subjects
-            author1.getSubjects().add(subject1);
-            author1.getSubjects().add(subject2);
-            author1.getSubjects().add(subject3);
+           //For one to one mapping
+            Book book=new Book();
+            book.setBookName("First Book");
+            author1.setBook(book);
+            session.save(book);
             session.save(author1);
-            session.save(subject1);
-            session.save(subject2);
-            session.save(subject3);
-            session.save(subject4);
+
             transaction.commit();
-
-
 
         }catch (RuntimeException e){
             System.out.println("------");

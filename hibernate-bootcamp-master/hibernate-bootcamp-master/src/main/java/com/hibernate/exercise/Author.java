@@ -23,51 +23,19 @@ public class Author {
     String LastName;
     @Column(name="Author_Age")
     int age;
-    /*@Temporal(TemporalType.DATE)@Column(name="Dob") //use @Temporal
-    Date date;*/
 
-/*    @Embedded
-    Address address;*/
+    @OneToOne
+    @JoinColumn(name="BookJoin")
+    Book book;
 
-    //List of subjects
-    @OneToMany
-    @JoinTable(joinColumns=@JoinColumn(name="Author_Id")
-    ,inverseJoinColumns=@JoinColumn(name="Subject_Id"))
-    List<Subjects> subjects=new ArrayList<>();
-
-    public List<Subjects> getSubjects() {
-        return subjects;
+    public Book getBook() {
+        return book;
     }
 
-    public void setSubjects(List<Subjects> subjects) {
-        this.subjects = subjects;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
-    /* public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }*/
-
-    /*public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }*/
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", age=" + age +
-                '}';
-    }
 
     public int getId() {
         return id;
