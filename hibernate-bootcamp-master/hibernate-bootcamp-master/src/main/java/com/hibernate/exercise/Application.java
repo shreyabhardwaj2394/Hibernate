@@ -18,6 +18,26 @@ public class Application {
         SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
         Session session=sessionFactory.openSession();
 
+
+        try{
+            Transaction transaction = session.beginTransaction();
+            Author author=new Author();
+            author.setFirstName("abc");
+            author.setLastName("def");
+            author.setAge(31);
+            author.setDate(new GregorianCalendar(1994,12,23).getTime());
+            session.save(author);
+
+            Author author2=new Author();
+            author2.setFirstName("rahul");
+            author2.setLastName("gagan");
+            author2.setAge(25);
+            author2.setDate(new GregorianCalendar(1991,10,23).getTime());
+            session.save(author2);
+            transaction.commit();
+        }catch (RuntimeException e){
+            System.out.println("------");
+        }
         session.close();
         sessionFactory.close();
 

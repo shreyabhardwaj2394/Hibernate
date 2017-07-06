@@ -9,7 +9,13 @@ import java.util.Date;
 @Entity
 public class Author {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+
+    @TableGenerator(
+            name="secondTable",
+            allocationSize = 5)         //Use Table
+    @GeneratedValue(generator="secondTable",strategy = GenerationType.TABLE)
+
     @Column(name = "Author_ID")
     int id;
     @Column(name="F_Name")
