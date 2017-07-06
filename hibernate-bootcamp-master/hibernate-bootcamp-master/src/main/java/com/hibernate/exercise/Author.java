@@ -24,17 +24,19 @@ public class Author {
     @Column(name="Author_Age")
     int age;
 
-    @OneToOne
-    @JoinColumn(name="BookJoin")
-    Book book;
-
-    public Book getBook() {
+    public Collection<Book> getBook() {
         return book;
     }
 
-    public void setBook(Book book) {
+    public void setBook(Collection<Book> book) {
         this.book = book;
     }
+
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name="AUTHOR"),
+    inverseJoinColumns = @JoinColumn(name="BOOK"))
+    Collection<Book> book=new ArrayList<>();
+
 
 
     public int getId() {
