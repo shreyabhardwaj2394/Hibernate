@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 public class Author {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Author_ID")
     int id;
     @Column(name="F_Name")
