@@ -32,9 +32,7 @@ public class Author {
         this.book = book;
     }
 
-    @OneToMany
-    @JoinTable(joinColumns = @JoinColumn(name="AUTHOR"),
-    inverseJoinColumns = @JoinColumn(name="BOOK"))
+    @OneToMany(mappedBy = "author")
     Collection<Book> book=new ArrayList<>();
 
 
