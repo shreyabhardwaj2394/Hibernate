@@ -10,7 +10,6 @@ import java.util.Date;
 public class Author {
 
     @Id
-
     @TableGenerator(
             name="secondTable",
             allocationSize = 5)         //Use Table
@@ -27,6 +26,17 @@ public class Author {
     int age;
     @Temporal(TemporalType.DATE)@Column(name="Dob") //use @Temporal
     Date date;
+
+    @Embedded
+    Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Date getDate() {
         return date;

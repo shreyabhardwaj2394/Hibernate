@@ -21,25 +21,33 @@ public class Application {
 
         try{
             Transaction transaction = session.beginTransaction();
+
+            Address address=new Address();
+            address.setStreetNumber(12);
+            address.setLocation("CP");
+            address.setState("Delhi");
+
+
             Author author=new Author();
             author.setFirstName("abc");
             author.setLastName("def");
             author.setAge(31);
             author.setDate(new GregorianCalendar(1994,12,23).getTime());
+            author.setAddress(address);
             session.save(author);
 
-            Author author2=new Author();
-            author2.setFirstName("rahul");
-            author2.setLastName("gagan");
-            author2.setAge(25);
-            author2.setDate(new GregorianCalendar(1991,10,23).getTime());
-            session.save(author2);
             transaction.commit();
+
+
+
         }catch (RuntimeException e){
             System.out.println("------");
         }
-        session.close();
-        sessionFactory.close();
+        finally {
+            session.close();
+            sessionFactory.close();
+        }
+
 
         System.out.println("Done");
 

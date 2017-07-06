@@ -1,11 +1,14 @@
 package com.hibernate.exercise;
 
+import javax.persistence.Embeddable;
+
 /**
  * Created by Shreya on 7/6/2017.
  */
 
 
 //Create a class Address
+@Embeddable
 public class Address {
     int streetNumber;
     String location;
