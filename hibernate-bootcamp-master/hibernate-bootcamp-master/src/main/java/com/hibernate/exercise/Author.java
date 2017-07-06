@@ -1,7 +1,9 @@
 package com.hibernate.exercise;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Shreya on 7/4/2017.
@@ -29,6 +31,10 @@ public class Author {
 
     @Embedded
     Address address;
+
+    //List of subjects
+    @ElementCollection
+    List<String> subjects=new ArrayList<>();
 
     public Address getAddress() {
         return address;
