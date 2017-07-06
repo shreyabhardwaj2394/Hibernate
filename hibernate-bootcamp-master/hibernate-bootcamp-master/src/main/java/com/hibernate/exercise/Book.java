@@ -6,6 +6,8 @@ import javax.persistence.Id;
 /**
  * Created by Shreya on 7/6/2017.
  */
+
+//create a book entity
 @Entity
 public class Book {
     @Id
