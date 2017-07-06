@@ -32,7 +32,7 @@ public class Author {
         this.book = book;
     }
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(cascade = CascadeType.PERSIST)
     Collection<Book> book=new ArrayList<>();
 
 

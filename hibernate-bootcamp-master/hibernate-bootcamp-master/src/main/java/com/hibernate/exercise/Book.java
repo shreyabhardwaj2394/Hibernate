@@ -15,16 +15,6 @@ public class Book {
     @Id
     String bookName;
 
-    @ManyToOne
-    Author author;
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
 
     public String getBookName() {
         return bookName;
