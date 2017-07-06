@@ -14,28 +14,37 @@ import java.util.GregorianCalendar;
 public class Application {
     public static void main(String[] args) {
 
-
         SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
         Session session=sessionFactory.openSession();
-
-
         try{
             Transaction transaction = session.beginTransaction();
 
-            Address address=new Address();
-            address.setStreetNumber(12);
-            address.setLocation("CP");
-            address.setState("Delhi");
+            Subjects subject1=new Subjects();
+            subject1.setSubjectName("Science");
+
+            Subjects subject2=new Subjects();
+            subject2.setSubjectName("English");
+
+            Subjects subject3=new Subjects();
+            subject3.setSubjectName("Maths");
+
+            Subjects subject4=new Subjects();
+            subject4.setSubjectName("CS");
 
 
-            Author author=new Author();
-            author.setFirstName("abc");
-            author.setLastName("def");
-            author.setAge(31);
-            author.setDate(new GregorianCalendar(1994,12,23).getTime());
-            author.setAddress(address);
-            session.save(author);
-
+            Author author1=new Author();
+            author1.setFirstName("shreya");
+            author1.setLastName("bhardwaj");
+            author1.setAge(22);
+           //Adding multiple subjects
+            author1.getSubjects().add(subject1);
+            author1.getSubjects().add(subject2);
+            author1.getSubjects().add(subject3);
+            session.save(author1);
+            session.save(subject1);
+            session.save(subject2);
+            session.save(subject3);
+            session.save(subject4);
             transaction.commit();
 
 

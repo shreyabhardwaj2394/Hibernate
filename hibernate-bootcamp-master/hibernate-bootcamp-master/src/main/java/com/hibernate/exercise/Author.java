@@ -13,11 +13,7 @@ import java.util.List;
 public class Author {
 
     @Id
-    @TableGenerator(
-            name="secondTable",
-            allocationSize = 5)         //Use Table
-    @GeneratedValue(generator="secondTable",strategy = GenerationType.TABLE)
-
+    @GeneratedValue
     @Column(name = "Author_ID")
     int id;
     @Column(name="F_Name")
@@ -27,31 +23,41 @@ public class Author {
     String LastName;
     @Column(name="Author_Age")
     int age;
-    @Temporal(TemporalType.DATE)@Column(name="Dob") //use @Temporal
-    Date date;
+    /*@Temporal(TemporalType.DATE)@Column(name="Dob") //use @Temporal
+    Date date;*/
 
-    @Embedded
-    Address address;
+/*    @Embedded
+    Address address;*/
 
     //List of subjects
-    @ElementCollection
+    @OneToMany
+    @JoinTable(joinColumns=@JoinColumn(name="Author_Id")
+    ,inverseJoinColumns=@JoinColumn(name="Subject_Id"))
     List<Subjects> subjects=new ArrayList<>();
 
-    public Address getAddress() {
+    public List<Subjects> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<Subjects> subjects) {
+        this.subjects = subjects;
+    }
+
+    /* public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
-    }
+    }*/
 
-    public Date getDate() {
+    /*public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
-    }
+    }*/
 
     @Override
     public String toString() {

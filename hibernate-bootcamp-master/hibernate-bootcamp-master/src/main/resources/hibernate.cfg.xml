@@ -24,6 +24,7 @@
         <!--Annotated entity class-->
         <!--<mapping class="com.hibernate.demo.Person"/>-->
         <mapping class="com.hibernate.exercise.Author"/>
-        <mapping class="com.hibernate.exercise.Address"/>
+        <!--<mapping class="com.hibernate.exercise.Address"/>-->
+        <mapping class="com.hibernate.exercise.Subjects"/>
     </session-factory>
 </hibernate-configuration>
