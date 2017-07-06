@@ -22,15 +22,15 @@ public class Application {
             Book book1=new Book();
             book1.setBookName("First Book");
 
-
-
             Author author1=new Author();
             author1.setFirstName("shreya");
             author1.setLastName("bhardwaj");
             author1.setAge(22);
-
             author1.getBook().add(book1);
-            session.persist(author1);
+            book1.getAuthor().add(author1);
+            session.save(author1);
+            session.save(book1);
+            //session.persist(author1);
             transaction.commit();
 
         }catch (RuntimeException e){
