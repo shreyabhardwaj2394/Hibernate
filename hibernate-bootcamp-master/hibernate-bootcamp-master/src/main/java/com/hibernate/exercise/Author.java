@@ -2,6 +2,7 @@ package com.hibernate.exercise;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class Author {
 
     //List of subjects
     @ElementCollection
-    List<String> subjects=new ArrayList<>();
+    List<Subjects> subjects=new ArrayList<>();
 
     public Address getAddress() {
         return address;
