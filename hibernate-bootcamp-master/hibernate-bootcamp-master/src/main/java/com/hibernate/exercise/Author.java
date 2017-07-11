@@ -11,10 +11,8 @@ public class Author {
 
     @Id
 
-    @TableGenerator(
-            name="secondTable",
-            allocationSize = 5)         //Use Table
-    @GeneratedValue(generator="secondTable",strategy = GenerationType.TABLE)
+    //Use Table
+    @GeneratedValue(strategy = GenerationType.TABLE)
 
     @Column(name = "Author_ID")
     int id;

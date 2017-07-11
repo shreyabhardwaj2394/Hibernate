@@ -34,6 +34,14 @@ public class Application {
             author2.setAge(25);
             author2.setDate(new GregorianCalendar(1991,10,23).getTime());
             session.save(author2);
+
+            Author author3=new Author();
+            author3.setFirstName("rahul");
+            author3.setLastName("gagan");
+            author3.setAge(25);
+            author3.setDate(new GregorianCalendar(1991,10,23).getTime());
+            session.save(author3);
+
             transaction.commit();
         }catch (RuntimeException e){
             System.out.println("------");
